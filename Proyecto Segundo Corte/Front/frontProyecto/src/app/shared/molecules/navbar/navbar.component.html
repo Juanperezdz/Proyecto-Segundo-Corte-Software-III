@@ -1,0 +1,12 @@
+<nav>
+  <ul class="nav-list">
+    <li *ngFor="let item of items">
+      <app-link
+        [id]="item.id"
+        [className]="item.className"
+        [text]="item.text"
+        [url]="item.url">
+      </app-link>
+    </li>
+  </ul>
+</nav>
