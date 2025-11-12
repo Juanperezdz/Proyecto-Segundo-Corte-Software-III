@@ -3,6 +3,13 @@ a {
     outline: none;
     font-family: "GT", sans-serif;
     font-size: 0.8rem;
-    line-height: 17px;
+    line-height: 19px;
     color: var(--black-color);
+    text-transform: uppercase;
 }
+
+.header-nav-links {
+    font-size: 1rem;
+    color: var(--white-color);
+}
+

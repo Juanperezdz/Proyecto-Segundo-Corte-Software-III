@@ -1,3 +1,54 @@
+.container-imagenes-flotantes {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    z-index: 1;
+}
+
+.imagen-flotante {
+    position: absolute;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    transition: 0.3s ease-out;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 1.5s ease, transform 1.5s ease-out;
+}
+
+.imagen-flotante.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#imagen-foltante-1 {
+    top: 10%;
+    left: 15%;
+}
+
+#imagen-foltante-2 {
+    top: 20%;
+    right: 15%;
+}
+
+#imagen-foltante-3 {
+    top: 10%;
+    left: 50%;
+}
+
+#imagen-foltante-4 {
+    bottom: 15%;
+    right: 25%;
+}
+
+#imagen-foltante-5 {
+    top: 55%;
+    left: 25%;
+}
+
 .container-title {
     display: flex;
     flex-direction: column;
@@ -8,7 +59,8 @@
     align-items: center;
     font-family: 'Roxborough-light', sans-serif;
     font-size: 7.5vw;
-    color: var(--black-color);
+    color: var(--white-color);
+    mix-blend-mode: exclusion;
 }
 
 .title-gentleman {

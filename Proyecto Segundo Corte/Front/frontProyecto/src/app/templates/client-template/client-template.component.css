@@ -6,6 +6,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  background-color: var(--primary-color);
+  z-index: 5;
+  mix-blend-mode: exclusion;
 }

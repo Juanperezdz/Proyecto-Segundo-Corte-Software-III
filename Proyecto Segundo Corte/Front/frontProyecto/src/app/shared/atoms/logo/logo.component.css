@@ -2,5 +2,6 @@
   width: 200px;
   height: auto;
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-25%);
 }
