@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Roxborough-light';
+  src: url('assets/fonts/roxborough-cf-light.woff') format('truetype');
+  font-weight: light;
+  font-style: light;
+}
+
+@font-face {
+  font-family: 'GT';
+  src: url('assets/fonts/GTAmerica-ExpandedRegular.woff2') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #F5F5F0;
+  --black-color: #151515;
+}

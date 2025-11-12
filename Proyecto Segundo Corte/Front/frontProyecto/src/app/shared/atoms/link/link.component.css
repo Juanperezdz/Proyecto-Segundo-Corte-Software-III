@@ -1,0 +1,8 @@
+a {
+    text-decoration: none;
+    outline: none;
+    font-family: "GT", sans-serif;
+    font-size: 0.8rem;
+    line-height: 17px;
+    color: var(--black-color);
+}

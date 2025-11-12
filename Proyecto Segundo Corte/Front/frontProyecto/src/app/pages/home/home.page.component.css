@@ -1,0 +1,16 @@
+.container-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-title div {
+    align-items: center;
+    font-family: 'Roxborough-light', sans-serif;
+    font-size: 7.5vw;
+    color: var(--black-color);
+}
+
+.title-gentleman {
+    line-height: 1;
+}

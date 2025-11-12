@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HeaderComponent } from '../../shared/organisms/header/header.component';
 
 @Component({
@@ -9,5 +9,4 @@ import { HeaderComponent } from '../../shared/organisms/header/header.component'
   styleUrl: './client-template.component.css'
 })
 export class ClientTemplateComponent {
-
 }
