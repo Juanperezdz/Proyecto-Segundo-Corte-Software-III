@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class="container-body">
+    <div #containerImagenesFlotantes class="container-imagenes-flotantes">
+        <app-imagenes 
+            *ngFor="let infoImagen of infoImagenes"
+            [rutaImagen]="infoImagen.rutaImagen" 
+            [titulo]="infoImagen.titulo" 
+            [id]="infoImagen.id"
+            [className]="infoImagen.className">
+        </app-imagenes>
+    </div>
+
+    <div class="container-title">
+        <div class="title-gentleman">Gentleman's</div>
+        <div class="title-cut">Cut</div>
+    </div>
+</div>

@@ -11,10 +11,10 @@ import { LogoComponent } from '../../atoms/logo/logo.component';
 })
 export class HeaderComponent {
   navItemsClient = [
-    { id: 'nav-cliente-barberos', className: 'header-nav-links', text: 'Barberos', url: '#' },
-    { id: 'nav-cliente-servicios', className: 'header-nav-links', text: 'Servicios', url: '#' },
-    { id: 'nav-cliente-reservas', className: 'header-nav-links', text: 'Nueva Reserva', url: '#' },
-    { id: 'nav-cliente-misReservas', className: 'header-nav-links', text: 'Mis Reservas', url: '#' }
+    { id: 'nav-cliente-barberos', className: 'header-nav-links', text: 'Barberos', redireccion: '#' },
+    { id: 'nav-cliente-servicios', className: 'header-nav-links', text: 'Servicios', redireccion: '#' },
+    { id: 'nav-cliente-reservas', className: 'header-nav-links', text: 'Nueva Reserva', redireccion: 'reservas' },
+    { id: 'nav-cliente-misReservas', className: 'header-nav-links', text: 'Mis Reservas', redireccion: '#' }
   ];
 
 }

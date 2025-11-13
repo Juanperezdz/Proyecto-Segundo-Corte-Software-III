@@ -1,0 +1,75 @@
+.container-body {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 120px;
+}
+
+.container-reservas {
+    width: 80%;
+    height: 100%;
+    background-color: var(--white-color);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1800px) {
+    .container-reservas {
+        width: 90%;
+    }
+}
+
+.section-servicios {
+    padding: 1.5em 2em;
+}
+
+.section-carrito {
+    background-color: red;
+}
+
+.header-servicios {
+    display: flex;
+    flex-direction: column;
+    mix-blend-mode: exclusion;
+    color: var(--white-color);
+    margin-bottom: 32px;
+}
+
+.miga-de-pan ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+
+    font-family: "GT", sans-serif;
+    font-size: 15px;
+}
+
+.flecha-miga svg{
+    width: 20px;
+    vertical-align: middle;
+}
+
+.titulo {
+    font-family: 'Roxborough-light', sans-serif;
+    font-size: 4.5rem;
+}
+
+.categorias-servicios ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+
+    font-family: "GT", sans-serif;
+    font-size: 15px;
+}
