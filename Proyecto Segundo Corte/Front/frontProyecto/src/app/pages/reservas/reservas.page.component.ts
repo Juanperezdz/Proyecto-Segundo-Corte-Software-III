@@ -15,4 +15,7 @@ export class ReservasPageComponent {
     { id: 'nav-cliente-reservas', className: 'reservas-categoria-links', text: 'Diseños', url: '#' },
     { id: 'nav-cliente-misReservas', className: 'reservas-categoria-links', text: 'Extras', url: '#' }
   ];
+
+  infoImagenBarberia = { rutaImagen: '../assets/images/images-reserva/barberia.jpg', titulo: 'Imagen Barberia', id: 'imagen-reserva-barberia', className: 'imagen-reserva img-fluid' };
+
 }

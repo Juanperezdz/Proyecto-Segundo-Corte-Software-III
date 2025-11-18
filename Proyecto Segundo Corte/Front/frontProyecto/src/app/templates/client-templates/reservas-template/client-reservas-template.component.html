@@ -50,7 +50,7 @@
                 </div>
                 <div class="categorias-servicios">
                     <ul>
-                        <li *ngFor="let categoria of listaCategorias">
+                        <li #containerCategoria *ngFor="let categoria of listaCategorias" [attr.data-id]="categoria.id">
                             <app-link
                                 [id]="categoria.id"
                                 [className]="categoria.className"
@@ -61,7 +61,54 @@
                     </ul>
                 </div>
             </div>
-            <div class="section-carrito col-5 d-none d-xl-flex m-0 p-0">
+            <div class="section-carrito col-5 d-none d-xl-flex m-0 p-0 ">
+                <div class="container-carrito">
+                    <div class="header-carrito d-flex">
+                        <div class="container-image-header-carrito d-flex">
+                            <app-imagenes
+                                [rutaImagen]="infoImagenBarberia.rutaImagen" 
+                                [titulo]="infoImagenBarberia.titulo" 
+                                [id]="infoImagenBarberia.id"
+                                [className]="infoImagenBarberia.className">
+                            </app-imagenes>
+                        </div>
+                        <div class="container-info-header-carrito d-flex flex-column">
+                            <div class="titulo-header-carrito"><span>Gentleman's Cut</span></div>
+                            <div class="calificacion-header-carrito d-flex">
+                                <span class="calificacion">5.0</span>
+                                <div class="estrellas-calificacion-carrito d-flex">
+                                    <span class="estrella">
+                                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m29.3 13.299-5.633 4.92 1.687 7.326a2 2 0 0 1-1.86 2.453 2 2 0 0 1-1.118-.285l-6.384-3.876-6.37 3.876a1.997 1.997 0 0 1-2.979-2.168l1.685-7.318-5.635-4.928A2 2 0 0 1 3.831 9.79l7.428-.644 2.9-6.92a1.994 1.994 0 0 1 2.943-.892c.327.218.582.528.734.891l2.908 6.921 7.425.644a1.998 1.998 0 0 1 1.757 2.531 2 2 0 0 1-.62.977z"></path></svg>
+                                    </span>
+                                    <span class="estrella">
+                                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m29.3 13.299-5.633 4.92 1.687 7.326a2 2 0 0 1-1.86 2.453 2 2 0 0 1-1.118-.285l-6.384-3.876-6.37 3.876a1.997 1.997 0 0 1-2.979-2.168l1.685-7.318-5.635-4.928A2 2 0 0 1 3.831 9.79l7.428-.644 2.9-6.92a1.994 1.994 0 0 1 2.943-.892c.327.218.582.528.734.891l2.908 6.921 7.425.644a1.998 1.998 0 0 1 1.757 2.531 2 2 0 0 1-.62.977z"></path></svg>
+                                    </span>
+                                    <span class="estrella">
+                                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m29.3 13.299-5.633 4.92 1.687 7.326a2 2 0 0 1-1.86 2.453 2 2 0 0 1-1.118-.285l-6.384-3.876-6.37 3.876a1.997 1.997 0 0 1-2.979-2.168l1.685-7.318-5.635-4.928A2 2 0 0 1 3.831 9.79l7.428-.644 2.9-6.92a1.994 1.994 0 0 1 2.943-.892c.327.218.582.528.734.891l2.908 6.921 7.425.644a1.998 1.998 0 0 1 1.757 2.531 2 2 0 0 1-.62.977z"></path></svg>
+                                    </span>
+                                    <span class="estrella">
+                                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m29.3 13.299-5.633 4.92 1.687 7.326a2 2 0 0 1-1.86 2.453 2 2 0 0 1-1.118-.285l-6.384-3.876-6.37 3.876a1.997 1.997 0 0 1-2.979-2.168l1.685-7.318-5.635-4.928A2 2 0 0 1 3.831 9.79l7.428-.644 2.9-6.92a1.994 1.994 0 0 1 2.943-.892c.327.218.582.528.734.891l2.908 6.921 7.425.644a1.998 1.998 0 0 1 1.757 2.531 2 2 0 0 1-.62.977z"></path></svg>
+                                    </span>
+                                    <span class="estrella">
+                                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m29.3 13.299-5.633 4.92 1.687 7.326a2 2 0 0 1-1.86 2.453 2 2 0 0 1-1.118-.285l-6.384-3.876-6.37 3.876a1.997 1.997 0 0 1-2.979-2.168l1.685-7.318-5.635-4.928A2 2 0 0 1 3.831 9.79l7.428-.644 2.9-6.92a1.994 1.994 0 0 1 2.943-.892c.327.218.582.528.734.891l2.908 6.921 7.425.644a1.998 1.998 0 0 1 1.757 2.531 2 2 0 0 1-.62.977z"></path></svg>
+                                    </span>
+                                </div>
+                                <span class="numero-votos">(200)</span>
+                            </div>
+                            <div class="direccion-header-carrito"><span>Calle 6 #11N-06 Barrio Campo Bello</span></div>
+                        </div>
+                    </div>
+                    <div class="container-servicios-seleccionados-carrito"></div>
+                    <div class="container-total-carrito d-flex justify-content-between align-items-center">
+                        <span>Total</span>
+                        <span>45.000 COP</span>
+                    </div>
+                    <div class="container-btn-carrito">
+                        <button class="btn-carrito">
+                            <span>Continuar</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
