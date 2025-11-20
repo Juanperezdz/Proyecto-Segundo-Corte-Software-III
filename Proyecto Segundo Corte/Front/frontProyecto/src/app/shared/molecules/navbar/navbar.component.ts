@@ -14,7 +14,6 @@ export class NavbarComponent {
     id: string;
     className?: string;
     text: string;
-    url?: string;
-    redireccion?: string;
+    redireccion: string;
   }[] = [];
 }

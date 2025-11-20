@@ -12,6 +12,13 @@ import { ImagenesComponent } from '../../../shared/atoms/imagenes/imagenes.compo
   styleUrl: './client-home-template.component.css',
 })
 export class ClientHomeTemplateComponent implements AfterViewInit {
+  @Input() navBar: {
+      id: string;
+      className?: string;
+      text: string;
+      redireccion: string;
+  }[] = [];
+
   @Input() infoImagenes: {
     rutaImagen: string;
     titulo: string;

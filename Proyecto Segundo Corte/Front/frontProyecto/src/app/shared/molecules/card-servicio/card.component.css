@@ -1,0 +1,51 @@
+.card-servicio {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: var(--border-black-color);
+    padding: 1.3rem;
+    margin-bottom: 2rem;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+}
+
+.container-card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "GT", sans-serif;
+    font-size: 1rem;
+    color: var(--white-color);
+}
+
+.info-servicio {
+    mix-blend-mode: exclusion;
+}
+
+.titulo-servicio {
+    font-family: "Roxborough-light", sans-serif;
+    font-size: 1.5rem;
+}
+
+.duracion-servicio {
+    color: var(--white-dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.btn-agregar-carrito {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-agregar-carrito span {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

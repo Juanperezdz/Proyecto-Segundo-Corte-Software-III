@@ -26,5 +26,7 @@ body {
   --primary-color: #F5F5F0;
   --black-color: #151515;
   --white-color: #FFFDED;
+  --white-dark-color: #8d8c82;
   --black-light-color: rgba(26, 26, 26, 0.9);
+  --border-black-color: #E5E5E5;
 }

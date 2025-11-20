@@ -1,0 +1,15 @@
+<div [id]="categoriaSeccion" class="container-serrvicio">
+    <div class="titulo-categoria">
+        <span>{{ nombreCategoria }}</span>
+    </div>
+    <div class="lista-servicios d-flex flex-column">
+        <app-card-servicio
+            *ngFor="let servicio of listaServicios"
+            [id]="servicio.id"
+            [titulo]="servicio.titulo"
+            [duracion]="servicio.duracion"
+            [precio]="servicio.precio"
+            [agregarCarrito]="true">
+        </app-card-servicio>
+    </div>
+</div>

@@ -9,6 +9,13 @@ import { ClientHomeTemplateComponent } from '../../templates/client-templates/ho
   styleUrl: './home.page.component.css'
 })
 export class HomePageComponent {
+  navBar = [
+    { id: 'nav-cliente-barberos', className: 'header-nav-links', text: 'Barberos', redireccion: '#' },
+    { id: 'nav-cliente-servicios', className: 'header-nav-links', text: 'Servicios', redireccion: '#' },
+    { id: 'nav-cliente-reservas', className: 'header-nav-links', text: 'Nueva Reserva', redireccion: 'reservas' },
+    { id: 'nav-cliente-misReservas', className: 'header-nav-links', text: 'Mis Reservas', redireccion: '#' }
+  ];
+
   infoImagenes = [
     { rutaImagen: '../assets/images/images-inicio/img1.jpg', titulo: 'Imagen 1', id: 'imagen-foltante-1', className: 'imagen-flotante img-fluid w-25'},
     { rutaImagen: '../assets/images/images-inicio/img2.jpg', titulo: 'Imagen 2', id: 'imagen-foltante-2', className: 'imagen-flotante img-fluid w-25'},

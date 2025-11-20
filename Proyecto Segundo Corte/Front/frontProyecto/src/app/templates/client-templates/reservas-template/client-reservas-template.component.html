@@ -1,51 +1,52 @@
-<app-header></app-header>
+<app-header [navBar]="navBar"></app-header>
+
 
 <div class="container-body">
     <div class="container-reservas">
         <div class="contenedor row h-100 w-100 m-0 p-0">
+            <div class="miga-de-pan">
+                <ul class="m-0 p-0">
+                    <li>
+                        <div class="miga">
+                            <span class="titulo-miga">
+                                Servicios
+                            </span>
+                            <span class="flecha-miga">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="miga">
+                            <span class="titulo-miga">
+                                Horario
+                            </span>
+                            <span class="flecha-miga">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="miga">
+                            <span class="titulo-miga">
+                                Barberos
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
             <div class="section-servicios col-12 col-xl-7 m-0">
                 <div class="header-servicios">
-                    <div class="miga-de-pan">
-                        <ul>
-                            <li>
-                                <div class="miga">
-                                    <span class="titulo-miga">
-                                        Servicios
-                                    </span>
-                                    <span class="flecha-miga">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                        </svg>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="miga">
-                                    <span class="titulo-miga">
-                                        Horario
-                                    </span>
-                                    <span class="flecha-miga">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                        </svg>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="miga">
-                                    <span class="titulo-miga">
-                                        Barberos
-                                    </span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="titulo">
-                        <div>Servicios</div>
+                        <span>Servicios</span>
                     </div>
                 </div>
                 <div class="categorias-servicios">
@@ -55,10 +56,19 @@
                                 [id]="categoria.id"
                                 [className]="categoria.className"
                                 [text]="categoria.text"
+                                [redireccion]="'/reservas'"
                                 [url]="categoria.url">
                             </app-link>
                         </li>
                     </ul>
+                </div>
+                <div class="lista-servicios">
+                    <app-info-servicios-reserva
+                        *ngFor="let categoria of listaCategorias"
+                        [categoriaSeccion]="categoria.url"
+                        [nombreCategoria]="categoria.text"
+                        [listaServicios]="filtrarServicios(categoria.text)">
+                    </app-info-servicios-reserva>
                 </div>
             </div>
             <div class="section-carrito col-5 d-none d-xl-flex m-0 p-0 ">
