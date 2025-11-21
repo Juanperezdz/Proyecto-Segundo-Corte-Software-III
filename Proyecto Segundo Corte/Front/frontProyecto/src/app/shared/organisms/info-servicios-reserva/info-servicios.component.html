@@ -1,15 +1,19 @@
-<div [id]="categoriaSeccion" class="container-serrvicio">
+<div [id]="categoriaSeccion" class="container-servicio">
     <div class="titulo-categoria">
         <span>{{ nombreCategoria }}</span>
     </div>
-    <div class="lista-servicios d-flex flex-column">
+    <div #containerCardServicio class="lista-servicios d-flex flex-column">
         <app-card-servicio
             *ngFor="let servicio of listaServicios"
             [id]="servicio.id"
             [titulo]="servicio.titulo"
             [duracion]="servicio.duracion"
             [precio]="servicio.precio"
-            [agregarCarrito]="true">
+            [agregarCarrito]="true"
+
+            (seleccionar)="toggleSeleccion($event)"
+
+            [seleccionado]="estaSeleccionado(servicio.id)">
         </app-card-servicio>
     </div>
 </div>

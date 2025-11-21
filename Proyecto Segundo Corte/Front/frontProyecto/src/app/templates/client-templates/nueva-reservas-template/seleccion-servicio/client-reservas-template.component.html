@@ -1,0 +1,164 @@
+<app-header [navBar]="navBar"></app-header>
+
+
+<div class="container-body">
+    <div class="container-reservas">
+        <div class="miga-de-pan">
+            <ul class="m-0 p-0">
+                <li>
+                    <div class="miga">
+                        <span class="titulo-miga">
+                            Servicios
+                        </span>
+                        <span class="flecha-miga">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div class="miga">
+                        <span class="titulo-miga">
+                            Barberos
+                        </span>
+                        <span class="flecha-miga">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <div class="miga">
+                        <span class="titulo-miga">
+                            Horario
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="contenedor row w-100 m-0 p-0">
+            <div class="col-12 col-xl-7 m-0 p-0">
+                <div class="section-servicios">
+                    <div class="header-servicios">
+                        <div class="titulo">
+                            <span>Servicios</span>
+                        </div>
+                    </div>
+                    <div class="categorias-servicios">
+                        <ul>
+                            <li #containerCategoria *ngFor="let categoria of listaCategorias"
+                                [attr.data-id]="categoria.id">
+                                <app-link [id]="categoria.id" [className]="categoria.className" [text]="categoria.text"
+                                    [redireccion]="'/reservas'" [url]="categoria.url">
+                                </app-link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container-lista-servicios"
+                        *ngIf="(!listaCategorias || listaCategorias.length > 0) &&  (!listaServicios || listaServicios.length > 0); else noServicios">
+                        <div class="lista-servicios">
+                            <app-info-servicios-reserva *ngFor="let categoria of listaCategorias"
+                                [categoriaSeccion]="categoria.url" [nombreCategoria]="categoria.text"
+                                [listaServicios]="filtrarServicios(categoria.text)"
+                                (servicioSeleccionado)="onServicioToggle($event)">
+                            </app-info-servicios-reserva>
+                        </div>
+                    </div>
+                    <ng-template #noServicios>
+                        <div id="error-no-servicios" class="mensaje"><span>No hay servicios disponibles para reservar actualmente</span></div>
+                    </ng-template>
+                </div>
+            </div>
+            <div class="section-carrito col-5 d-none d-xl-flex m-0 p-0 ">
+                <div class="container-carrito">
+                    <div class="header-carrito d-flex">
+                        <div class="container-image-header-carrito d-flex">
+                            <app-imagenes [rutaImagen]="infoImagenBarberia.rutaImagen"
+                                [titulo]="infoImagenBarberia.titulo" [id]="infoImagenBarberia.id"
+                                [className]="infoImagenBarberia.className">
+                            </app-imagenes>
+                        </div>
+                        <div class="container-info-header-carrito d-flex flex-column">
+                            <div class="titulo-header-carrito"><span>Gentleman's Cut</span></div>
+                            <div class="calificacion-header-carrito d-flex">
+                                <span class="calificacion">5.0</span>
+                                <div class="estrellas-calificacion-carrito d-flex">
+                                    <span class="estrella">
+                                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                            <path
+                                                d="m29.3 13.299-5.633 4.92 1.687 7.326a2 2 0 0 1-1.86 2.453 2 2 0 0 1-1.118-.285l-6.384-3.876-6.37 3.876a1.997 1.997 0 0 1-2.979-2.168l1.685-7.318-5.635-4.928A2 2 0 0 1 3.831 9.79l7.428-.644 2.9-6.92a1.994 1.994 0 0 1 2.943-.892c.327.218.582.528.734.891l2.908 6.921 7.425.644a1.998 1.998 0 0 1 1.757 2.531 2 2 0 0 1-.62.977z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="estrella">
+                                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                            <path
+                                                d="m29.3 13.299-5.633 4.92 1.687 7.326a2 2 0 0 1-1.86 2.453 2 2 0 0 1-1.118-.285l-6.384-3.876-6.37 3.876a1.997 1.997 0 0 1-2.979-2.168l1.685-7.318-5.635-4.928A2 2 0 0 1 3.831 9.79l7.428-.644 2.9-6.92a1.994 1.994 0 0 1 2.943-.892c.327.218.582.528.734.891l2.908 6.921 7.425.644a1.998 1.998 0 0 1 1.757 2.531 2 2 0 0 1-.62.977z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="estrella">
+                                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                            <path
+                                                d="m29.3 13.299-5.633 4.92 1.687 7.326a2 2 0 0 1-1.86 2.453 2 2 0 0 1-1.118-.285l-6.384-3.876-6.37 3.876a1.997 1.997 0 0 1-2.979-2.168l1.685-7.318-5.635-4.928A2 2 0 0 1 3.831 9.79l7.428-.644 2.9-6.92a1.994 1.994 0 0 1 2.943-.892c.327.218.582.528.734.891l2.908 6.921 7.425.644a1.998 1.998 0 0 1 1.757 2.531 2 2 0 0 1-.62.977z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="estrella">
+                                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                            <path
+                                                d="m29.3 13.299-5.633 4.92 1.687 7.326a2 2 0 0 1-1.86 2.453 2 2 0 0 1-1.118-.285l-6.384-3.876-6.37 3.876a1.997 1.997 0 0 1-2.979-2.168l1.685-7.318-5.635-4.928A2 2 0 0 1 3.831 9.79l7.428-.644 2.9-6.92a1.994 1.994 0 0 1 2.943-.892c.327.218.582.528.734.891l2.908 6.921 7.425.644a1.998 1.998 0 0 1 1.757 2.531 2 2 0 0 1-.62.977z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="estrella">
+                                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                            <path
+                                                d="m29.3 13.299-5.633 4.92 1.687 7.326a2 2 0 0 1-1.86 2.453 2 2 0 0 1-1.118-.285l-6.384-3.876-6.37 3.876a1.997 1.997 0 0 1-2.979-2.168l1.685-7.318-5.635-4.928A2 2 0 0 1 3.831 9.79l7.428-.644 2.9-6.92a1.994 1.994 0 0 1 2.943-.892c.327.218.582.528.734.891l2.908 6.921 7.425.644a1.998 1.998 0 0 1 1.757 2.531 2 2 0 0 1-.62.977z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <span class="numero-votos">(200)</span>
+                            </div>
+                            <div class="direccion-header-carrito"><span>Calle 6 #11N-06 Barrio Campo Bello</span></div>
+                        </div>
+                    </div>
+                    <div class="container-servicios-seleccionados-carrito">
+                        <div class="carrito">
+                            <ul *ngIf="!serviciosCarrito || serviciosCarrito.length > 0; else noServiciosCarrito">
+                                <li *ngFor="let s of serviciosCarrito">
+                                    <div class="container-servicio-carrito">
+                                        <div class="info-servicio-carrito">
+                                            <span class="nombre-servicio-carrito">{{ s.titulo }}</span>
+                                            <span class="duracion-servicio-carrito">{{ s.duracion }}</span>
+                                        </div>
+                                        <div class="precio-servicio-carrito">
+                                            <span>{{ s.precio }}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ng-template #noServiciosCarrito>
+                                <div class="mensaje">No hay artículos seleccionados</div>
+                            </ng-template>
+                        </div>
+                        <div class="container-total-carrito d-flex justify-content-between align-items-center">
+                            <span>Total</span>
+                            <span>45.000 COP</span>
+                        </div>
+                    </div>
+                    <div class="container-btn-carrito">
+                        <button class="btn-carrito" [disabled]="!serviciosCarrito || serviciosCarrito.length === 0">
+                            <span>Continuar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

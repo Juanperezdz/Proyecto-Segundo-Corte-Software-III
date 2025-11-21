@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ClientReservasTemplateComponent } from '../../templates/client-templates/reservas-template/client-reservas-template.component';
+import { SeleccionServicioTemplateComponent } from '../../../templates/client-templates/nueva-reservas-template/seleccion-servicio/client-reservas-template.component';
 
 @Component({
   selector: 'app-reservas',
   standalone: true,
-  imports: [ClientReservasTemplateComponent],
+  imports: [SeleccionServicioTemplateComponent],
   templateUrl: './reservas.page.component.html',
   styleUrl: './reservas.page.component.css'
 })
@@ -44,20 +44,20 @@ export class ReservasPageComponent {
     { id: 'servicio-11', categoria: 'Extras', titulo: 'Lavado Capilar', duracion: '10 min', precio: '$5.000' },
     { id: 'servicio-12', categoria: 'Extras', titulo: 'Mascarilla Facial', duracion: '20 min', precio: '$12.000' },
     { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
-    { id: 'servicio-13', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' }
+    { id: 'servicio-14', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-15', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-16', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-17', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-18', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-19', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-20', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-21', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-22', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-23', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-24', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-25', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-26', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' },
+    { id: 'servicio-27', categoria: 'Extras', titulo: 'Cejas con Navaja', duracion: '10 min', precio: '$6.000' }
   ];
 
 

@@ -4,8 +4,9 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
   background-color: var(--primary-color);
+  scroll-behavior: smooth;
 }
 
 @font-face {
@@ -27,6 +28,9 @@ body {
   --black-color: #151515;
   --white-color: #FFFDED;
   --white-dark-color: #8d8c82;
-  --black-light-color: rgba(26, 26, 26, 0.9);
+  --black-light-color: rgba(40, 40, 40, 0.9);
   --border-black-color: #E5E5E5;
+  --grey-color: #dadada63;
+  --grey-dark-color: #8a8a8a63;
+  --select-color: #852b23;
 }
