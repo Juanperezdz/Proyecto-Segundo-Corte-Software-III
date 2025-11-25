@@ -1,0 +1,102 @@
+.card-barbero {
+    border-radius: 15px;
+    padding: 1.3rem;
+    margin-bottom: 1rem;
+    box-shadow: inset 0 0 0 1px var(--border-black-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-barbero:hover {
+    box-shadow: inset 0 0 0 1px var(--grey-dark-color);
+    background-color: var(--grey-color);
+}
+
+.card-barbero.barbero-seleccionado {
+    box-shadow: inset 0 0 0 3px var(--select-color);
+    background-color: var(--grey-color);
+}
+
+.container-card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "GT", sans-serif;
+    font-size: 1rem;
+    color: var(--white-color);
+}
+
+.img-barbero {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    color: var(--white-dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    background-color: var(--select-background-color);
+}
+
+.sin-foto {
+    width: 55%;
+    height: 55%;
+    color: var(--select-color);
+}
+
+.nombre-barbero {
+    mix-blend-mode: exclusion;
+    font-size: 1.3rem;
+}
+
+.duracion-barbero {
+    color: var(--white-dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.btn-agregar-carrito {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.card-barbero.barbero-seleccionado .btn-agregar-carrito  {
+    background-color: var(--select-color);
+}
+
+.btn-agregar-carrito span {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition: opacity 0.1s ease;
+}
+
+.icono-agregar {
+    opacity: 1;
+}
+
+/* Ícono alterno oculto al inicio */
+.icono-agregado {
+    color: var(--white-color);
+    opacity: 0;
+}
+
+/* Cuando la card esté seleccionada */
+.card-barbero.barbero-seleccionado .icono-agregar {
+    opacity: 0;
+}
+
+.card-barbero.barbero-seleccionado .icono-agregado {
+    opacity: 1;
+}

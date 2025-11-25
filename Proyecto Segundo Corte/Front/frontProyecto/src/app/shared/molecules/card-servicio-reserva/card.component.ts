@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-card-servicio',
@@ -10,7 +10,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CardServicioComponent {
   @Input() id!: string;
-  @Input() titulo!: string;
+  @Input() nombre!: string;
   @Input() duracion!: string;
   @Input() precio!: string;
   @Input() agregarCarrito!: boolean;

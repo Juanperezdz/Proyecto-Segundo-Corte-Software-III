@@ -1,0 +1,18 @@
+<div [id]="servicioSeccion" class="container-barbero">
+    <div class="titulo-categoria">
+        <span>{{ nombreServicio }}</span>
+    </div>
+    <div #containerCardbarbero class="lista-barberos d-flex flex-column">
+        <app-car-barbero-reserva
+            *ngFor="let barbero of listaBarberos"
+            [id]="barbero.id"
+            [nombre]="barbero.nombre"
+            [foto]="barbero.foto ?? null"
+            [agregarCarrito]="true"
+
+            (seleccionar)="toggleSeleccion($event)"
+
+            [seleccionado]="estaSeleccionado(barbero.id)">
+        </app-car-barbero-reserva>
+    </div>
+</div>

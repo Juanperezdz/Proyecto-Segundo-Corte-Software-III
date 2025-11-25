@@ -1,9 +1,10 @@
 .container-body {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .container-reservas {
@@ -51,8 +52,17 @@
     padding-bottom: 20px;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     position: relative;
+}
+
+.categorias-servicios ul::-webkit-scrollbar {
+    height: 4px;
+}
+
+.categorias-servicios ul::-webkit-scrollbar-thumb {
+    background: var(--black-color);
+    border-radius: 10px;
 }
 
 .section-carrito {
@@ -79,6 +89,7 @@
 }
 
 .categorias-servicios ul {
+    height: inherit;
     display: flex;
     list-style: none;
     align-items: center;
@@ -88,6 +99,11 @@
 
     font-family: "GT", sans-serif;
     font-size: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-top: 12px;
+    padding-bottom: 10px;
 }
 
 .categorias-servicios  ul  li {

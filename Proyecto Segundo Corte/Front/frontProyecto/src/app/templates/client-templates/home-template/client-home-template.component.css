@@ -1,5 +1,5 @@
 .container-body {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--primaty-color);
+  top: 0;
 }
 
 .container-imagenes-flotantes {

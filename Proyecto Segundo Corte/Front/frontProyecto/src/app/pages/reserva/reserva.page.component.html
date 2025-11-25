@@ -1,0 +1,21 @@
+<div class="contenedor">
+
+  <app-seleccion-servicio-template
+    *ngIf="paso === 1"
+    [navBar]="navBar"
+    [listaCategorias]="categorias"
+    [listaServicios]="listaServicios"
+    [infoImagenBarberia]="infoImagenBarberia"
+    (continuar)="mostrarSeleccionBarbero($event)">
+  </app-seleccion-servicio-template>
+
+  <app-seleccion-barbero-template
+    *ngIf="paso === 2"
+    [navBar]="navBar"
+    [listaCategorias]="categorias"
+    [listaBarberos]="listaBarberos"
+    [serviciosSeleccionados]="serviciosSeleccionados"
+    [infoImagenBarberia]="infoImagenBarberia">
+  </app-seleccion-barbero-template>
+
+</div>

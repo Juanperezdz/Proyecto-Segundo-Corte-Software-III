@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardServicioComponent } from '../../molecules/card-servicio/card.component';
+import { CardServicioComponent } from '../../molecules/card-servicio-reserva/card.component';
 
 @Component({
   selector: 'app-info-servicios-reserva',
@@ -16,7 +16,7 @@ export class InfoServiciosReservaComponent {
   @Input() listaServicios: {
     id: string;
     categoria: string;
-    titulo: string;
+    nombre: string;
     duracion: string;
     precio: string;
   }[] = [];

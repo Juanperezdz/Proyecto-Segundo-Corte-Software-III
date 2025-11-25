@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="categorias-servicios">
-                        <ul>
+                        <ul #scrollCategorias>
                             <li #containerCategoria *ngFor="let categoria of listaCategorias"
                                 [attr.data-id]="categoria.id">
                                 <app-link [id]="categoria.id" [className]="categoria.className" [text]="categoria.text"
@@ -134,7 +134,7 @@
                                 <li *ngFor="let s of serviciosCarrito">
                                     <div class="container-servicio-carrito">
                                         <div class="info-servicio-carrito">
-                                            <span class="nombre-servicio-carrito">{{ s.titulo }}</span>
+                                            <span class="nombre-servicio-carrito">{{ s.nombre }}</span>
                                             <span class="duracion-servicio-carrito">{{ s.duracion }}</span>
                                         </div>
                                         <div class="precio-servicio-carrito">
@@ -153,7 +153,7 @@
                         </div>
                     </div>
                     <div class="container-btn-carrito">
-                        <button class="btn-carrito" [disabled]="!serviciosCarrito || serviciosCarrito.length === 0">
+                        <button class="btn-carrito" [disabled]="!serviciosCarrito || serviciosCarrito.length === 0" (click)="continuar.emit(serviciosCarrito)">
                             <span>Continuar</span>
                         </button>
                     </div>

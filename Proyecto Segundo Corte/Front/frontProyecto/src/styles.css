@@ -33,4 +33,5 @@ html, body {
   --grey-color: #dadada63;
   --grey-dark-color: #8a8a8a63;
   --select-color: #852b23;
+  --select-background-color: rgba(133, 43, 35, 0.17);
 }

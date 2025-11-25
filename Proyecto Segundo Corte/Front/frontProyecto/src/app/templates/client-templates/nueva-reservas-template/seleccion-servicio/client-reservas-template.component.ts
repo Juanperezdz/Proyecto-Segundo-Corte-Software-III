@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild, ViewChildren, QueryList, Input } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { HeaderComponent } from '../../../../shared/organisms/header/header.component';
 import { LinkComponent } from '../../../../shared/atoms/link/link.component';
 import { CommonModule } from '@angular/common';
@@ -13,7 +13,7 @@ import { InfoServiciosReservaComponent } from '../../../../shared/organisms/info
   templateUrl: './client-reservas-template.component.html',
   styleUrl: './client-reservas-template.component.css'
 })
-export class SeleccionServicioTemplateComponent {
+export class SeleccionServicioTemplateComponent implements AfterViewInit {
   @Input() navBar: {
     id: string;
     className?: string;
@@ -32,7 +32,7 @@ export class SeleccionServicioTemplateComponent {
   @Input() listaServicios: {
     id: string;
     categoria: string;
-    titulo: string;
+    nombre: string;
     duracion: string;
     precio: string;
   }[] = [];
@@ -48,18 +48,20 @@ export class SeleccionServicioTemplateComponent {
       id: '',
       className: ''
     };
-
-  public filtrarServicios(categoria: string) {
-    return this.listaServicios.filter(s => s.categoria === categoria);
-  }
+  
+  @Output() continuar = new EventEmitter<any[]>();
 
   serviciosCarrito: {
     id: string;
     categoria: string;
-    titulo: string;
+    nombre: string;
     duracion: string;
     precio: string;
   }[] = [];
+
+  public filtrarServicios(categoria: string) {
+    return this.listaServicios.filter(s => s.categoria === categoria);
+  }
 
   onServicioToggle(evento: { id: string, seleccionado: boolean }) {
     const { id, seleccionado } = evento;
@@ -72,26 +74,29 @@ export class SeleccionServicioTemplateComponent {
     }
 
     if (seleccionado) {
-      console.log('Servicio agregado:', servicio);
+      console.log('Servicio agregado al carrito:', servicio);
       // agregar al carrito usando `servicio`
       this.serviciosCarrito.push(servicio);
     } else {
-      console.log('Servicio eliminado:', servicio);
+      console.log('Servicio eliminado del carrito:', servicio);
       this.serviciosCarrito = this.serviciosCarrito.filter(s => s.id !== id);
     }
   }
 
-  getServiciosCarrito()  {
-    if (!this.serviciosCarrito) {
-      console.log(this.serviciosCarrito);
-      return this.serviciosCarrito;
-    }
-  }
-
   @ViewChildren('containerCategoria') categorias!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChild('scrollCategorias') scrollCategorias!: ElementRef<HTMLUListElement>;
 
   ngAfterViewInit() {
     const elementos = this.categorias.map(x => x.nativeElement);
     initCategoriaAnimacion(elementos as any);
+
+    const el = this.scrollCategorias.nativeElement;
+
+    el.addEventListener('wheel', (e: WheelEvent) => {
+      if (e.deltaY !== 0) {
+        e.preventDefault(); // evita el scroll vertical
+        el.scrollLeft += e.deltaY; // mueve horizontalmente
+      }
+    });
   }
 }
