@@ -6,8 +6,8 @@
         <div class="miga-de-pan">
             <ul class="m-0 p-0">
                 <li>
-                    <div class="miga">
-                        <span class="titulo-miga">
+                    <div id="servicios-miga" class="miga">
+                        <span class="titulo-miga" (click)="migaServicios.emit(serviciosCarrito)">
                             Servicios
                         </span>
                         <span class="flecha-miga">
@@ -19,7 +19,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="miga">
+                    <div id="barberos-miga" class="miga">
                         <span class="titulo-miga">
                             Barberos
                         </span>
@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <div class="miga">
-                        <span class="titulo-miga">
+                        <span id="horario-miga" class="titulo-miga">
                             Horario
                         </span>
                     </div>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="categorias-barberos">
                         <ul #scrollServicios>
-                            <li #containerCategoria *ngFor="let servicio of serviciosSeleccionados"
+                            <li #containerCategoria *ngFor="let servicio of serviciosCarrito"
                                 [attr.data-id]="servicio.id">
                                 <app-link [id]="servicio.id" [className]="'reservas-categoria-links'"
                                     [text]="servicio.nombre" [redireccion]="'/reservas'" [url]="servicio.url">
@@ -59,10 +59,11 @@
                         </ul>
                     </div>
                     <div class="container-lista-barberos"
-                        *ngIf="(!serviciosSeleccionados || serviciosSeleccionados.length > 0) &&  (!listaBarberos || listaBarberos.length > 0); else noBarberos">
+                        *ngIf="(!serviciosCarrito || serviciosCarrito.length > 0) &&  (!listaBarberos || listaBarberos.length > 0); else noBarberos">
                         <div class="lista-barberos">
-                            <app-info-barbero *ngFor="let servicio of serviciosSeleccionados; trackBy: trackByServicio"
+                            <app-info-barbero *ngFor="let servicio of serviciosCarrito; trackBy: trackByServicio"
                                 [servicioSeccion]="servicio.url" [nombreServicio]="servicio.nombre"
+                                [barberosCarrito]="barberosCarrito"
                                 [listaBarberos]="filtrarBarberos(servicio.id)" [idServicio]="servicio.id"
                                 (barberoSeleccionado)="onServicioToggle($event)">
                             </app-info-barbero>
@@ -133,8 +134,8 @@
                     <div class="container-barberos-seleccionados-carrito">
                         <div class="carrito">
                             <ul
-                                *ngIf="!serviciosSeleccionados || serviciosSeleccionados.length > 0; else noServiciosCarrito">
-                                <li *ngFor="let s of serviciosSeleccionados">
+                                *ngIf="!serviciosCarrito || serviciosCarrito.length > 0; else noServiciosCarrito">
+                                <li *ngFor="let s of serviciosCarrito">
                                     <div class="container-servicio-carrito">
                                         <div class="info-servicio-carrito">
                                             <span class="nombre-servicio-carrito">{{ s.nombre }}</span>
@@ -163,7 +164,7 @@
                         </div>
                     </div>
                     <div class="container-btn-carrito">
-                        <button class="btn-carrito">
+                        <button class="btn-carrito" [disabled]="btnDisabled()" (click)="buttonContinuarClick()">
                             <span>Continuar</span>
                         </button>
                     </div>

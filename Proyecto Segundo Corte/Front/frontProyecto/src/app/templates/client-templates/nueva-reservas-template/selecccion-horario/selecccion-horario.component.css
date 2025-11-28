@@ -1,0 +1,304 @@
+.container-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container-reservas {
+    width: 80%;
+    height: 100%;
+    min-height: calc(100vh - 145px);
+    margin-bottom: 1.5rem;
+    background-color: var(--white-color);
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.miga-de-pan {
+    margin-top: 1em;
+    margin-left: 2em;
+    padding: 0;
+    display: flex;
+}
+
+.miga-de-pan ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 8px;
+
+    font-family: "GT", sans-serif;
+    font-size: 15px;
+    mix-blend-mode: exclusion;
+    color: var(--white-dark-color);
+}
+
+#servicios-miga:hover, #barberos-miga:hover, #horario-miga {
+    color: var(--white-color);
+}
+
+#servicios-miga, #barberos-miga {
+    cursor: pointer;
+}
+
+.flecha-miga svg{
+    width: 20px;
+    vertical-align: middle;
+}
+
+.contenedor {
+    height: 100%;
+    min-height: calc(100vh - 183px);
+}
+
+.section-barberos {
+    height: 100%;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.section-carrito {
+    justify-content: center;
+}
+
+/* Seccion barberos */
+
+.header-barberos {
+    display: flex;
+    flex-direction: column;
+    mix-blend-mode: exclusion;
+    color: var(--white-color);
+}
+
+.titulo {
+    font-family: 'Roxborough-light', sans-serif;
+    font-size: 4.5rem;
+    text-transform: uppercase;
+}
+
+.section-calendario {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.container-calendario  {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-calentario {
+    font-size: 1.2rem;
+    color: var(--black-color);
+    padding-inline: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 30px;
+    border: none;
+    border-radius: 50px;
+    background-color: transparent;
+    font-family: "GT", sans-serif;
+    box-shadow: inset 0 0 0 1px var(--border-black-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-calentario:hover {
+    box-shadow: inset 0 0 0 1px var(--grey-dark-color);
+    background-color: var(--grey-color);
+}
+
+.calendario  {
+    position: absolute;
+    margin-top: 15px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Seccion carrito */
+.container-carrito {
+    height: 76vh;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 1rem;
+
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: var(--border-black-color);
+    position: fixed;
+}
+
+.header-carrito {
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.container-image-header-carrito {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.titulo-header-carrito {
+    font-family: "Roxborough-light", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.calificacion-header-carrito {
+    gap: 4px;
+    align-items: center;
+
+    font-family: "GT", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.estrellas-calificacion-carrito {
+    color: #ffc00a;
+}
+
+.estrella {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.numero-votos {
+    font-weight: 400;
+}
+
+.direccion-header-carrito {
+    font-family: "GT", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--black-light-color);
+}
+
+.container-barberos-seleccionados-carrito {
+    flex: 1;
+    overflow-y: hidden;
+}
+
+.carrito {
+    max-height: 90%;
+    width: 100%;
+    overflow-y: auto;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    padding-right: 4px;
+    border-bottom: 1px solid var(--grey-dark-color);
+    font-family: "GT", sans-serif;
+    font-size: 1rem;
+}
+
+.carrito::-webkit-scrollbar {
+    width: 4px;
+}
+
+.carrito::-webkit-scrollbar-thumb {
+    background: var(--black-color);
+    border-radius: 10px;
+}
+
+.carrito ul {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+
+    font-family: "GT", sans-serif;
+    color: var(--black-light-color);
+}
+
+.container-servicio-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-servicio-carrito {
+    display: flex;
+    flex-direction: column;
+}
+
+.nombre-servicio-carrito,.precio-servicio-carrito {
+    font-weight: 600;
+    color: var(--black-color);
+}
+
+.container-total-carrito {
+    margin-top: 1rem;
+    font-family: "GT", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.btn-carrito {
+    width: 100%;
+    background-color: var(--select-color);
+    color: var(--white-color);
+    border: 1px solid var(--select-color);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    font-family: "Roxborough-light", sans-serif;
+    font-size: 2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-carrito:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-carrito:not(:disabled):hover {
+    background-color: transparent;
+    color: var(--select-color);
+}
+
+#error-no-servicios {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "GT", sans-serif;
+    font-size: 2rem;
+    text-align: center;
+}
+
+@media (max-width: 1800px) {
+    .container-reservas {
+        width: 90%;
+    }
+}

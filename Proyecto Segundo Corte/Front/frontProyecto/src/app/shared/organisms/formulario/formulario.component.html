@@ -1,0 +1,11 @@
+<form class="form" [class]="className">
+    <div class="container-form" [class]="className">
+        <app-campo-input *ngFor="let campo of listaCampos" [forLabel]="campo.forLabel" [label]="campo.label"
+            [infoInput]="campo.infoInput"
+            [validaciones]="campo.infoInput.validaciones">
+        </app-campo-input>
+    </div>
+    <button [disabled]="disabled">
+        {{ textoBoton }}
+    </button>
+</form>

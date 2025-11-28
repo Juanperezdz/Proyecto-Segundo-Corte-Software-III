@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { SeleccionServicioTemplateComponent } from '../../templates/client-templates/nueva-reservas-template/seleccion-servicio/client-reservas-template.component';
-import { SeleccionBarberoTemplateComponent } from '../../templates/client-templates/nueva-reservas-template/seleccion-barbero/seleccion-barbero.component';
+import { SeleccionServicioTemplateComponent } from '../../../templates/client-templates/nueva-reservas-template/seleccion-servicio/client-reservas-template.component';
+import { SeleccionBarberoTemplateComponent } from '../../../templates/client-templates/nueva-reservas-template/seleccion-barbero/seleccion-barbero.component';
 import { CommonModule } from '@angular/common';
+import { SelecccionHorarioTemplateComponent } from '../../../templates/client-templates/nueva-reservas-template/selecccion-horario/selecccion-horario.component';
 
 @Component({
   selector: 'app-reservas',
   standalone: true,
-  imports: [CommonModule, SeleccionServicioTemplateComponent, SeleccionBarberoTemplateComponent],
+  imports: [CommonModule, SeleccionServicioTemplateComponent, SeleccionBarberoTemplateComponent, SelecccionHorarioTemplateComponent],
   templateUrl: './reserva.page.component.html',
   styleUrl: './reserva.page.component.css'
 })
@@ -91,15 +92,28 @@ export class ReservasPageComponent {
     }
     ];
 
-
     infoImagenBarberia = { rutaImagen: '../assets/images/images-reserva/barberia.jpg', titulo: 'Imagen Barberia', id: 'imagen-reserva-barberia', className: 'imagen-reserva img-fluid' };
 
     paso = 1;
-    serviciosSeleccionados: any[] = [];
+    serviciosCarrito: any[] = [];
+    barberosCarrito: any[] = [];
+    horarioCarrito: string | null = null;
 
-    mostrarSeleccionBarbero(servicios: any[]) {
-        this.serviciosSeleccionados = servicios;
+    mostrarSeleccionServicios(servicios: any[]) {
+        this.serviciosCarrito = servicios;
+        this.paso = 1;
+    }
+
+    mostrarSeleccionBarbero(serviciosCarrito: any[], barberosCarrito: any[] | null) {
+        this.serviciosCarrito = serviciosCarrito;
+        if (barberosCarrito) this.barberosCarrito = barberosCarrito;
         this.paso = 2;
+    }
+
+    mostrarSeleccionHorario(serviciosCarrito: any[], barberosCarrito: any[]) {
+        this.serviciosCarrito = serviciosCarrito;
+        this.barberosCarrito = barberosCarrito;
+        this.paso = 3;
     }
 
 

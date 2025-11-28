@@ -1,0 +1,12 @@
+<div class="container-campo">
+  <label class="label" [for]="forLabel"> {{ label }} </label>
+
+  <app-input
+    [id]="infoInput.id"
+    [type]="infoInput.type"
+    [name]="forLabel"
+    [required]="infoInput.required"
+    [placeholder]="infoInput.placeholder"
+    [validaciones]="validaciones"
+  ></app-input>
+</div>

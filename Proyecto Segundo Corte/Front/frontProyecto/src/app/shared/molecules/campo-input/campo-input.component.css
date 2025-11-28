@@ -1,0 +1,15 @@
+.container-campo {
+    position: relative;
+}
+
+.label {
+    font-family: 'GT', sans-serif;
+    font-size: 1.2vw;
+    mix-blend-mode: difference;
+}
+
+@media screen and (max-width: 1199px) {
+    .label {
+        font-size: 1.5vw;
+    }
+}

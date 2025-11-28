@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, AfterViewInit, SimpleChange, SimpleChanges, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardServicioComponent } from '../../molecules/card-servicio-reserva/card.component';
 
@@ -9,7 +9,7 @@ import { CardServicioComponent } from '../../molecules/card-servicio-reserva/car
   templateUrl: './info-servicios.component.html',
   styleUrl: './info-servicios.component.css'
 })
-export class InfoServiciosReservaComponent {
+export class InfoServiciosReservaComponent implements OnChanges {
   @Input() categoriaSeccion!: string;
   @Input() nombreCategoria!: string;
 
@@ -21,28 +21,35 @@ export class InfoServiciosReservaComponent {
     precio: string;
   }[] = [];
 
-  /** 🔥 Enviar al padre { id, seleccionado } */
-  @Output() servicioSeleccionado = new EventEmitter<{ id: string, seleccionado: boolean }>();
+  @Input() serviciosCarrito: any[] = [];
 
-  /** Guarda los IDs de los servicios seleccionados */
   serviciosSeleccionados: Set<string> = new Set();
 
-  toggleSeleccion(servicioId: string) {
-    let seleccionado = false;
+  @Output() servicioSeleccionado = new EventEmitter<{ id: string, seleccionado: boolean }>();
 
-    if (this.serviciosSeleccionados.has(servicioId)) {
-      this.serviciosSeleccionados.delete(servicioId);
-      seleccionado = false;
-    } else {
-      this.serviciosSeleccionados.add(servicioId);
-      seleccionado = true;
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['serviciosCarrito'] && this.serviciosCarrito) {
+      // Limpiar selección actual (opcional)
+      this.serviciosSeleccionados.clear();
+
+      // Cargar los IDs que vienen del carrito
+      for (let servicio of this.serviciosCarrito) {
+        this.serviciosSeleccionados.add(servicio.id);
+      }
     }
-
-    // Notificar al padre si se seleccionó o deseleccionó
-    this.servicioSeleccionado.emit({ id: servicioId, seleccionado });
   }
 
   estaSeleccionado(servicioId: string): boolean {
     return this.serviciosSeleccionados.has(servicioId);
+  }
+
+  toggleSeleccion(servicioId: string) {
+    if (this.serviciosSeleccionados.has(servicioId)) {
+      this.serviciosSeleccionados.delete(servicioId);
+      this.servicioSeleccionado.emit({ id: servicioId, seleccionado: false });
+    } else {
+      this.serviciosSeleccionados.add(servicioId);
+      this.servicioSeleccionado.emit({ id: servicioId, seleccionado: true });
+    }
   }
 }

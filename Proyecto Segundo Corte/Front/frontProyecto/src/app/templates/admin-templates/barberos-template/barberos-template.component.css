@@ -1,0 +1,27 @@
+.container-body {
+    width: 100%;
+    height: calc(100vh - 120px);
+    min-height: calc(100vh - 120px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.titulo {
+    width: 90%;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Roxborough-light', sans-serif;
+    font-size: 6vw;
+    mix-blend-mode: difference;
+    color: var(--white-color);
+    background-color: blue;
+}
+
+.container-form {
+    width: 90%;
+    height: 100%;
+    background-color: red;
+}

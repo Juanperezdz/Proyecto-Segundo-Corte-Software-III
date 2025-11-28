@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<div class="container-body">
+    <div class="container-login">
+        <div class="row w-100 h-100 m-0">
+            <div class="col-12 col-xl-6 p-0">
+                <div class="section-titulo">
+                    <div class="container-titulo">
+                        <div class="titulo-bienvenida">
+                            Bienvenido De vuelta
+                        </div>
+                        <div class="parrafo-bienvenida">
+                            Inicia sesión para volver a tu estilo y sentir la esencia de ser tú mismo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-xl-6 p-0">
+                <div class="section-login">
+                    <div class="container-form">
+                        <div class="form">
+                            <div class="titulo-login">Tu Cuenta</div>
+                            <app-formulario 
+                                [className]="formLogin.className"
+                                [textoBoton]="formLogin.textoBoton" 
+                                [listaCampos]="formLogin.listaCampos">
+                            </app-formulario>
+                        </div>
+                        <div class="crear-cuenta">
+                            <app-link
+                                [id]="'signup-link'"
+                                [className]="'signup-link'"
+                                [text]="'Crea tu cuenta'"
+                                [redireccion]="'/sign-up'">
+                            </app-link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

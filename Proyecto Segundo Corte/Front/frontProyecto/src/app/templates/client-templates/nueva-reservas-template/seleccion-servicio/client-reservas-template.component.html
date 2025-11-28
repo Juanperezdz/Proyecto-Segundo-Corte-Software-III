@@ -6,7 +6,7 @@
         <div class="miga-de-pan">
             <ul class="m-0 p-0">
                 <li>
-                    <div class="miga">
+                    <div id="servicios-miga" class="miga">
                         <span class="titulo-miga">
                             Servicios
                         </span>
@@ -19,7 +19,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="miga">
+                    <div id="barberos-miga" class="miga">
                         <span class="titulo-miga">
                             Barberos
                         </span>
@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <div class="miga">
-                        <span class="titulo-miga">
+                        <span id="horario-miga" class="titulo-miga">
                             Horario
                         </span>
                     </div>
@@ -64,6 +64,7 @@
                             <app-info-servicios-reserva *ngFor="let categoria of listaCategorias"
                                 [categoriaSeccion]="categoria.url" [nombreCategoria]="categoria.text"
                                 [listaServicios]="filtrarServicios(categoria.text)"
+                                [serviciosCarrito]="serviciosCarrito"
                                 (servicioSeleccionado)="onServicioToggle($event)">
                             </app-info-servicios-reserva>
                         </div>

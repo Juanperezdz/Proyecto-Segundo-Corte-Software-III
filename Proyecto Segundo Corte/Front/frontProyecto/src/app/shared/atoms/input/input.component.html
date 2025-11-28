@@ -1,0 +1,19 @@
+<div class="atom-input control">
+  <input
+    class="input"
+    [id]="id"
+    [type]="type"
+    [name]="name"
+    [required]="required"
+    [placeholder]="placeholder"
+    [ngModel]="value"
+    (ngModelChange)="onValueChange($event)"
+    #input="ngModel"
+  />
+</div>
+
+<div class="error">
+  <div *ngFor="let err of errores">
+    {{ err }}
+  </div>
+</div>

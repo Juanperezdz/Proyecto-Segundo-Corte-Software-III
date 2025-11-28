@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, Input, ViewChildren, ElementRef, QueryList, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChildren, ElementRef, QueryList, ViewChild, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../../../shared/organisms/header/header.component';
 import { LinkComponent } from '../../../../shared/atoms/link/link.component';
 import { initCategoriaAnimacion } from './animacionCategoria';
 import { InfoBarberoComponent } from '../../../../shared/organisms/info-barbero-reserva/info-barbero.component';
 import { ImagenesComponent } from '../../../../shared/atoms/imagenes/imagenes.component';
+import { ConnectableObservable } from 'rxjs';
 
 @Component({
   selector: 'app-seleccion-barbero-template',
@@ -33,23 +34,6 @@ export class SeleccionBarberoTemplateComponent implements AfterViewInit {
       className: ''
     };
 
-  @Input() listaCategorias: {
-    id: string;
-    className?: string;
-    text: string;
-    url: string;
-    redireccion?: string;
-  }[] = [];
-
-  @Input() listaServicios: {
-    id: string;
-    categoria: string;
-    nombre: string;
-    duracion: string;
-    precio: string;
-    url: string;
-  }[] = [];
-
   @Input() listaBarberos: {
     id: string;
     nombre: string;
@@ -57,9 +41,9 @@ export class SeleccionBarberoTemplateComponent implements AfterViewInit {
     servicios: string[];
   }[] = [];
 
-  @Input() serviciosSeleccionados: any[] = [];
+  @Input() serviciosCarrito: any[] = [];
 
-  barberosCarrito: {
+  @Input() barberosCarrito: {
     idServicio: string,
     barbero: {
       id: string;
@@ -68,6 +52,20 @@ export class SeleccionBarberoTemplateComponent implements AfterViewInit {
       servicios: string[];
     }
   }[] = [];
+
+  @Output() continuar = new EventEmitter<{ 
+    serviciosCarrito: any[],
+    barberosCarrito: any[]
+  }>();
+
+  @Output() migaServicios = new EventEmitter<any[]>();
+
+  buttonContinuarClick() {
+    this.continuar.emit({
+      serviciosCarrito: this.serviciosCarrito,
+      barberosCarrito: this.barberosCarrito
+    });
+  }
 
   barberosServicio = new Map<string, any[]>();
 
@@ -110,7 +108,6 @@ export class SeleccionBarberoTemplateComponent implements AfterViewInit {
     return this.barberosCarrito.find(b => b.idServicio === idServicio) || null;
   }
 
-
   onServicioToggle(evento: { idServicio: string, idBarbero: string, seleccionado: boolean }) {
     const { idServicio, idBarbero, seleccionado } = evento;
 
@@ -137,12 +134,27 @@ export class SeleccionBarberoTemplateComponent implements AfterViewInit {
     }
   }
 
+  btnDisabled() {
+    for (let servicio of this.serviciosCarrito) {
+      const existe = this.barberosCarrito.some(
+        b => b.idServicio === servicio.id
+      );
+
+      if (!existe) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+
   @ViewChildren('containerCategoria') categorias!: QueryList<ElementRef<HTMLElement>>;
   @ViewChild('scrollServicios') scrollServicios!: ElementRef<HTMLUListElement>;
   
   ngAfterViewInit() {
     const elementos = this.categorias.map(x => x.nativeElement);
     initCategoriaAnimacion(elementos as any);
+    console.log(this.barberosCarrito);
 
     const el = this.scrollServicios.nativeElement;
 

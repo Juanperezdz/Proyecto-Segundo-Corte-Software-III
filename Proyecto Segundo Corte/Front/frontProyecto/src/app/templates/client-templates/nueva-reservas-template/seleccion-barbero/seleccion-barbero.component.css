@@ -33,6 +33,16 @@
 
     font-family: "GT", sans-serif;
     font-size: 15px;
+    mix-blend-mode: exclusion;
+    color: var(--white-dark-color);
+}
+
+#barberos-miga, #servicios-miga:hover {
+    color: var(--white-color);
+}
+
+#servicios-miga {
+    cursor: pointer;
 }
 
 .flecha-miga svg{
@@ -242,7 +252,7 @@
     width: 100%;
     background-color: var(--select-color);
     color: var(--white-color);
-    border: none;
+    border: 1px solid var(--select-color);
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -253,7 +263,7 @@
 
     font-family: "Roxborough-light", sans-serif;
     font-size: 2rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-carrito:disabled {
@@ -262,7 +272,8 @@
 }
 
 .btn-carrito:not(:disabled):hover {
-    opacity: 0.85;
+    background-color: transparent;
+    color: var(--select-color);
 }
 
 #error-no-servicios {

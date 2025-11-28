@@ -51,7 +51,7 @@ export class SeleccionServicioTemplateComponent implements AfterViewInit {
   
   @Output() continuar = new EventEmitter<any[]>();
 
-  serviciosCarrito: {
+  @Input() serviciosCarrito: {
     id: string;
     categoria: string;
     nombre: string;

@@ -7,7 +7,7 @@ a {
 }
 
 .header-nav-links {
-    font-size: 1rem;
+    font-size: 0.9vw;
     text-transform: uppercase;
     color: var(--white-color);
 }
@@ -32,4 +32,19 @@ a {
     transform: scale(1.05);
 }
 
+.signup-link {
+    width: fit-content;
+    color: var(--white-color);
+    margin-top: 1vw;
+    font-family: 'GT', sans-serif;
+    font-size: 0.8vw;
+    padding-bottom: 0.4em;
+    border-bottom: 1px solid var(--grey-dark-color);
+    transition: border-color 0.3s ease;
+    mix-blend-mode: difference;
+}
 
+.signup-link:hover {
+    border-color: var(--white-color);
+    mix-blend-mode: difference;
+}

@@ -1,0 +1,34 @@
+<div class="contenedor">
+
+  <app-seleccion-servicio-template
+    *ngIf="paso === 1"
+    [navBar]="navBar"
+    [listaCategorias]="categorias"
+    [listaServicios]="listaServicios"
+    [infoImagenBarberia]="infoImagenBarberia"
+    [serviciosCarrito]="serviciosCarrito"
+    (continuar)="mostrarSeleccionBarbero($event, null)">
+  </app-seleccion-servicio-template>
+
+  <app-seleccion-barbero-template
+    *ngIf="paso === 2"
+    [navBar]="navBar"
+    [listaBarberos]="listaBarberos"
+    [serviciosCarrito]="serviciosCarrito"
+    [barberosCarrito]="barberosCarrito"
+    [infoImagenBarberia]="infoImagenBarberia"
+    (migaServicios)="mostrarSeleccionServicios($event)"
+    (continuar)="mostrarSeleccionHorario($event.serviciosCarrito, $event.barberosCarrito)">
+  </app-seleccion-barbero-template>
+
+  <app-selecccion-horario-template
+    *ngIf="paso === 3"
+    [navBar]="navBar"
+    [serviciosCarrito]="serviciosCarrito"
+    [barberosCarrito]="barberosCarrito"
+    (migaServicios)="mostrarSeleccionServicios($event)"
+    (migaBarberos)="mostrarSeleccionBarbero($event.serviciosCarrito, $event.barberosCarrito)"
+    [infoImagenBarberia]="infoImagenBarberia"
+  >
+  </app-selecccion-horario-template>
+</div>

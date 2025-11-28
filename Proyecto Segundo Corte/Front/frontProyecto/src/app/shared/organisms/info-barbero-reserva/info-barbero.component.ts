@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarBarberoReservaComponent } from '../../molecules/car-barbero-reserva/car-barbero-reserva.component';
 
@@ -9,7 +9,7 @@ import { CarBarberoReservaComponent } from '../../molecules/car-barbero-reserva/
   templateUrl: './info-barbero.component.html',
   styleUrl: './info-barbero.component.css'
 })
-export class InfoBarberoComponent {
+export class InfoBarberoComponent implements OnChanges {
 
   @Input() servicioSeccion!: string;
   @Input() nombreServicio!: string;
@@ -21,6 +21,8 @@ export class InfoBarberoComponent {
     foto?: string;
     servicios: string[];
   }[] = [];
+
+  @Input() barberosCarrito: any[] = [];
 
   /** Evento hacia el padre */
   @Output() barberoSeleccionado = new EventEmitter<{
@@ -67,4 +69,17 @@ export class InfoBarberoComponent {
   estaSeleccionado(barberoId: string): boolean {
     return this.barberoAsignado === barberoId;
   }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['barberosCarrito'] && this.barberosCarrito) {
+      
+      // Buscar si hay un barbero ya asignado para este servicio
+      const asignacion = this.barberosCarrito.find(
+        b => b.idServicio === this.idServicio
+      );
+
+      this.barberoAsignado = asignacion ? asignacion.barbero.id : null;
+    }
+  }
+
 }

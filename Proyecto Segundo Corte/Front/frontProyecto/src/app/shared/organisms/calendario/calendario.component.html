@@ -1,0 +1,32 @@
+<div class="container-calendario">
+    <div class="header-calendario">
+        <div class="container-btn">
+            <button class="btn-prev" (click)="cambiarMes(-1)">
+                <span>
+                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M19.957 9.043a1 1 0 0 1 0 1.414L14.414 16l5.543 5.543a1 1 0 0 1-1.414 1.414l-6.25-6.25a1 1 0 0 1 0-1.414l6.25-6.25a1 1 0 0 1 1.414 0" clip-rule="evenodd"></path></svg>
+                </span>
+            </button>
+        </div>
+        <span class="titulo-calendarios">
+            {{fecha | date:'MMMM yyyy'}}
+        </span>
+        <div class="container-btn">
+            <button class="btn-next" (click)="cambiarMes(1)">
+                <span>
+                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M12.293 9.043a1 1 0 0 1 1.414 0l6.25 6.25a1 1 0 0 1 0 1.414l-6.25 6.25a1 1 0 0 1-1.414-1.414L17.836 16l-5.543-5.543a1 1 0 0 1 0-1.414" clip-rule="evenodd"></path></svg>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="body-calendario">
+        <ol>
+            <li class="nombre-dia" *ngFor="let dia of diasSemana">{{dia | slice:0:3}}</li>
+            
+            <li class="dias" [class.seleccionado]="fechaSeleccionada === (fecha | date:'yyyy-MM') + '-' + (dia.dia | number:'2.0')"
+                [class.deshabilitado]="dia.esPasado" (click)="clickDia(dia)" [style.gridColumnStart]="first ? dia?.indexSemana : 'auto'" 
+                *ngFor="let dia of mesSeleccionado; let first = first">
+                <span>{{dia?.dia}}</span>
+            </li>
+        </ol>
+    </div>
+</div>

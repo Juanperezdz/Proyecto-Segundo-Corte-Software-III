@@ -1,0 +1,40 @@
+.container-form.form-login {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.container-form.form-signup {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    row-gap: 3rem;
+    width: 100%;
+}
+
+.form.form-login button, .form.form-signup button {
+    margin-top: 2.2vw;
+    background-color: var(--select-color);
+    color: var(--white-color);
+    border: 1px solid var(--select-color);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 1.2em;
+
+    font-family: "Roxborough-light", sans-serif;
+    font-size: 1.2vw;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.form.form-login button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.form.form-login button:not(:disabled):hover, .form.form-signup button:not(:disabled):hover {
+    background-color: transparent;
+    color: var(--select-color);
+}
