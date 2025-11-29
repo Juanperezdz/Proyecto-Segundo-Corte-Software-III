@@ -16,7 +16,7 @@ export class RegistrarBarberoComponent {
   ];
 
   formBarbero = {
-    className: 'form-barbero',
+    className: 'form-registrar-barbero grid',
     listaCampos: [
       {
         forLabel: 'nombre',
@@ -116,9 +116,81 @@ export class RegistrarBarberoComponent {
           type: 'file',
           required: false,
           placeholder: 'Sube una fotografía (opcional)',
-          validaciones: [] // sin validaciones porque es opcional
+          validaciones: [],
+          accept: 'image/*'
+        }
+      },
+      {
+        forLabel: 'fechaNacimiento',
+        label: 'Fecha de nacimiento',
+        infoInput: {
+          id: 'fechaNacimiento',
+          type: 'date',
+          required: true,
+          placeholder: '',
+          validaciones: [
+            (value: string) => value.trim() === '' ? 'La fecha de nacimiento es obligatoria' : null,
+            (value: string) => {
+              const hoy = new Date().toISOString().split('T')[0];
+              if (value > hoy) {
+                return 'La fecha no puede ser mayor a la fecha actual';
+              }
+              return null;
+            },
+            (value: string) => {
+              const nacimiento = new Date(value);
+              const hoy = new Date();
+              const edad = hoy.getFullYear() - nacimiento.getFullYear();
+              const ajusteMes =
+                hoy.getMonth() < nacimiento.getMonth() ||
+                (hoy.getMonth() === nacimiento.getMonth() && hoy.getDate() < nacimiento.getDate());
+
+              const edadFinal = ajusteMes ? edad - 1 : edad;
+
+              if (edadFinal < 18) {
+                return 'El barbero debe tener al menos 18 años de edad';
+              }
+              return null;
+            }
+          ]
+        }
+      },
+      {
+        forLabel: 'serviciosOfrecidos',
+        label: 'Servicios ofrecidos',
+        infoInput: {
+          id: 'serviciosOfrecidos',
+          type: 'checkbox-group',
+          required: true,
+          placeholder: 'Seleccione los servicios',
+          opciones: [
+            { value: 'Cortes', label: 'Cortes' },
+            { value: 'Barba', label: 'Barba' },
+            { value: 'Cejas', label: 'Cejas' }
+          ],
+          validaciones: [
+            (value: string[]) =>
+              (!value || value.length === 0)
+                ? 'Debe seleccionar al menos un servicio'
+                : null
+          ]
+        }
+      },
+      {
+        forLabel: 'password',
+        label: 'Contraseña',
+        infoInput: {
+          id: 'password',
+          type: 'password',
+          required: true,
+          placeholder: 'Ingresa tu contraseña',
+          validaciones: [
+            (value: string) => value.trim() === '' ? 'La contraseña es obligatoria' : null,
+            (value: string) => value.length < 8 ? 'La contraseña debe tener al menos 8 caracteres' : null
+          ]
         }
       }
+
     ],
     textoBoton: 'Registrar Barbero'
   };

@@ -1,8 +1,8 @@
-<form class="form" [class]="className">
-    <div class="container-form" [class]="className">
+<form class="form" [ngClass]="className">
+    <div class="container-form" [ngClass]="className">
         <app-campo-input *ngFor="let campo of listaCampos" [forLabel]="campo.forLabel" [label]="campo.label"
             [infoInput]="campo.infoInput"
-            [validaciones]="campo.infoInput.validaciones">
+            [className]="background">
         </app-campo-input>
     </div>
     <button [disabled]="disabled">

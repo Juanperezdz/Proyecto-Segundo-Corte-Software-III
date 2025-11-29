@@ -26,8 +26,12 @@ export class AdminBarberosTemplateComponent {
         id: string;
         type: string;
         required: boolean;
-        placeholder: string;
-        validaciones: ((value: string) => string | null)[];
+        placeholder?: string;
+        validaciones?: ((value: any) => string | null)[];
+        opciones?: { value: any; label: string }[];
+        multiple?: boolean;
+        maxDate?: string;
+        accept?: string;
       };
     }[];
     textoBoton: string;

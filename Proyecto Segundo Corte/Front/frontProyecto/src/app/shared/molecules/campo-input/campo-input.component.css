@@ -8,6 +8,14 @@
     mix-blend-mode: difference;
 }
 
+.white .label {
+    color: var(--white-color);
+}
+
+.black .label {
+    color: var(--black-color);
+}
+
 @media screen and (max-width: 1199px) {
     .label {
         font-size: 1.5vw;

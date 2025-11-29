@@ -1,6 +1,9 @@
 <div class="atom-input control">
+
+  <!-- INPUT normal (text, number, email, etc.) -->
   <input
-    class="input"
+    *ngIf="type !== 'select' && type !== 'checkbox-group' && type !== 'file'"
+    class="input input-normal"
     [id]="id"
     [type]="type"
     [name]="name"
@@ -10,9 +13,59 @@
     (ngModelChange)="onValueChange($event)"
     #input="ngModel"
   />
+
+  <!-- INPUT FILE personalizado -->
+  <div *ngIf="type === 'file'" class="file-wrapper">
+    <label class="file-label">
+      <input
+        type="file"
+        class="input-file"
+        [id]="id"
+        [name]="name"
+        [required]="required"
+        [accept]="accept"
+        (change)="onFileChange($event)"
+      />
+    </label>
+  </div>
+
+  <!-- SELECT -->
+  <select
+    *ngIf="type === 'select'"
+    class="input input-select"
+    [id]="id"
+    [name]="name"
+    [required]="required"
+    [multiple]="multiple"
+    [ngModel]="value"
+    (ngModelChange)="onValueChangeSelect($event)"
+    #input="ngModel"
+  >
+    <option value="" disabled selected>{{ placeholder }}</option>
+    <option *ngFor="let op of opciones" [value]="op.value">
+      {{ op.label }}
+    </option>
+  </select>
+
+  <!-- CHECKBOX GROUP -->
+  <div class="opciones" *ngIf="type === 'checkbox-group'">
+    <div *ngFor="let opcion of opciones">
+      <label class="checkbox-opcion">
+        <input
+          type="checkbox"
+          [value]="opcion.value"
+          (input)="onCheckChange($event)"
+          [checked]="Array.isArray(value) && value.includes(opcion.value)"
+        />
+        {{ opcion.label }}
+      </label>
+    </div>
+  </div>
+
 </div>
 
-<div class="error">
+<!-- ERRORES -->
+<div class="error" *ngIf="errores.length > 0">
   <div *ngFor="let err of errores">
     {{ err }}
   </div>

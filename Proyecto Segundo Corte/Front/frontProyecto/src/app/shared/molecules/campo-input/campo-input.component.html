@@ -1,12 +1,15 @@
-<div class="container-campo">
+<div class="container-campo" [class]="className">
   <label class="label" [for]="forLabel"> {{ label }} </label>
 
   <app-input
     [id]="infoInput.id"
     [type]="infoInput.type"
-    [name]="forLabel"
-    [required]="infoInput.required"
     [placeholder]="infoInput.placeholder"
-    [validaciones]="validaciones"
-  ></app-input>
+    [required]="infoInput.required"
+    [validaciones]="infoInput.validaciones"
+    [opciones]="infoInput.opciones"
+    [multiple]="infoInput.multiple"
+    [accept]="infoInput.accept">
+  </app-input>
+
 </div>

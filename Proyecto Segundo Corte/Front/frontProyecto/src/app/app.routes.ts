@@ -5,6 +5,8 @@ import { LoginPageComponent } from './pages/login/login/login.component';
 import { SignupPageComponent } from './pages/login/signup/signup.component';
 import { AdminBarberosTemplateComponent } from './templates/admin-templates/barberos-template/barberos-template.component';
 import { RegistrarBarberoComponent } from './pages/pages-administrador/registrar-barbero/registrar-barbero.component';
+import { CrearTurnoBarberoPageComponent } from './pages/pages-barbero/crear-turno/crear-turno.component';
+import { CrearServicioPageComponent } from './pages/pages-administrador/crear-servicio/crear-servicio.component';
 
 export const routerOptions: ExtraOptions = {
   anchorScrolling: 'enabled',
@@ -12,7 +14,9 @@ export const routerOptions: ExtraOptions = {
 };
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'barberos', pathMatch: 'full' },
+  { path: '', redirectTo: 'crear-servicio', pathMatch: 'full' },
+  { path: 'crear-servicio', component: CrearServicioPageComponent },
+  { path: 'crear-turno', component: CrearTurnoBarberoPageComponent },
   { path: 'barberos', component: RegistrarBarberoComponent },
   { path: 'log-in', component: LoginPageComponent },
   { path: 'sign-up', component: SignupPageComponent },

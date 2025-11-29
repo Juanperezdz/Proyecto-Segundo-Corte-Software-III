@@ -11,13 +11,18 @@ import { InputComponent } from '../../atoms/input/input.component';
 export class CampoInputComponent {
   @Input() forLabel: string = '';
   @Input() label: string = '';
+  @Input() className: string = '';
 
   @Input() infoInput!: {
     id: string;
     type: string;
     required: boolean;
-    placeholder: string;
+    placeholder?: string;   // <--- OPCIONAL
+    validaciones?: ((value: any) => string | null)[];
+    opciones?: { value: any; label: string }[];
+    multiple?: boolean;
+    maxDate?: string;
+    accept?: string;
   };
 
-  @Input() validaciones?: ((value: string) => string | null)[];
 }

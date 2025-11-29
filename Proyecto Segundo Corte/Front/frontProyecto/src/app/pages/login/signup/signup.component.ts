@@ -10,7 +10,7 @@ import { SignupTemplateComponent } from '../../../templates/login-template/signu
 })
 export class SignupPageComponent {
   formLogin = {
-    className: 'form-signup',
+    className: 'form-signup grid',
     listaCampos: [
       {
         forLabel: 'usuario',

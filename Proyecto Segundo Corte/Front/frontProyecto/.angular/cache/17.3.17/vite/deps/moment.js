@@ -3,9 +3,9 @@ import {
   __require
 } from "./chunk-EIB7IA3J.js";
 
-// node_modules/moment/moment.js
+// ../node_modules/moment/moment.js
 var require_moment = __commonJS({
-  "node_modules/moment/moment.js"(exports, module) {
+  "../node_modules/moment/moment.js"(exports, module) {
     (function(global, factory) {
       typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory() : typeof define === "function" && define.amd ? define(factory) : global.moment = factory();
     })(exports, function() {

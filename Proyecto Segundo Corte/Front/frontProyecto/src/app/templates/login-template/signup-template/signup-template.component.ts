@@ -20,10 +20,14 @@ export class SignupTemplateComponent {
         id: string;
         type: string;
         required: boolean;
-        placeholder: string;
-        validaciones: ((value: string) => string | null)[];
+        placeholder?: string;   // <--- OPCIONAL
+        validaciones?: ((value: any) => string | null)[];
+        opciones?: { value: any; label: string }[];
+        multiple?: boolean;
+        maxDate?: string;
       };
     }[];
     textoBoton: string;
   };
+
 }

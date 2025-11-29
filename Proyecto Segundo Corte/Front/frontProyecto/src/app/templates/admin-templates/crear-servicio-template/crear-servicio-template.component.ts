@@ -1,18 +1,23 @@
 import { Component, Input } from '@angular/core';
 import { HeaderComponent } from '../../../shared/organisms/header/header.component';
 import { FormularioComponent } from '../../../shared/organisms/formulario/formulario.component';
-import { LinkComponent } from '../../../shared/atoms/link/link.component';
 
 @Component({
-  selector: 'app-login-template',
+  selector: 'app-crear-servicio-template',
   standalone: true,
-  imports: [HeaderComponent, FormularioComponent, LinkComponent],
-  templateUrl: './login-template.component.html',
-  styleUrl: './login-template.component.css'
+  imports: [HeaderComponent,  FormularioComponent],
+  templateUrl: './crear-servicio-template.component.html',
+  styleUrl: './crear-servicio-template.component.css'
 })
-export class LoginTemplateComponent {
+export class CrearServicioTemplateComponent {
+  @Input() navBar: {
+    id: string;
+    className?: string;
+    text: string;
+    redireccion: string;
+  }[] = [];
 
-  @Input() formLogin!: {
+  @Input() formCrearServicio!: {
     className: string;
     listaCampos: {
       forLabel: string;
@@ -26,10 +31,9 @@ export class LoginTemplateComponent {
         opciones?: { value: any; label: string }[];
         multiple?: boolean;
         maxDate?: string;
+        accept?: string;
       };
     }[];
     textoBoton: string;
   };
-
-
 }

@@ -11,7 +11,7 @@ import { LoginTemplateComponent } from '../../../templates/login-template/login-
 export class LoginPageComponent {
 
   formLogin = {
-    className: 'form-login',
+    className: 'form-login flex',
     listaCampos: [
       {
         forLabel: 'usuario',

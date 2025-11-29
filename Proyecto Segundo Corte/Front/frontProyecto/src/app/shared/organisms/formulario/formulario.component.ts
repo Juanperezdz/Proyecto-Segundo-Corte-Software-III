@@ -13,6 +13,7 @@ export class FormularioComponent {
   @Input() className: string = '';
   @Input() textoBoton: string = '';
   @Input() disabled: boolean = false;
+  @Input() background: string = '';
 
   @Input() listaCampos: {
     forLabel: string;
@@ -21,9 +22,13 @@ export class FormularioComponent {
       id: string;
       type: string;
       required: boolean;
-      placeholder: string;
-      validaciones: ((value: string) => string | null)[];
-    }
+      placeholder?: string;   // <--- OPCIONAL
+      validaciones?: ((value: any) => string | null)[];
+      opciones?: { value: any; label: string }[];
+      multiple?: boolean;
+      maxDate?: string;
+      accept?: string;
+    };
   }[] =[];
 
 }
